@@ -1,5 +1,11 @@
+import BasePageComponent from "../../components/BasePageComponent/BasePageComponent";
+
 export default function CartPage() {
   return (
-    <h1>cart</h1>
+    <BasePageComponent>
+      <div className="container">
+        asdf
+      </div>
+    </BasePageComponent> 
   )
 }
