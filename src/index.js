@@ -5,11 +5,21 @@ import App from './App'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import CartPage from './pages/CartPage/CartPage';
+
+
+const router = createBrowserRouter([
+  {
+    path: '/cart',
+    element: <CartPage />
+  }
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
