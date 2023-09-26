@@ -76,7 +76,7 @@ const projects = [
         content:
             "Go Anywhere with Peace of Mind! For Travel, Gym, Gear, And Those Who Live Life On The Move.",
         createdBy: "Korin Design",
-        img: "https://ksr-ugc.imgix.net/assets/042/436/149/b651c63272367e3c7c90f6448444b44b_original.jpg?ixlib=rb-4.1.0&crop=faces&w=352&h=198&fit=crop&v=1695654531&auto=format&frame=1&q=92&s=6ef29eaee30661e0ed4959875da1a7fb",
+        img: "https://ksr-ugc.imgix.net/assets/042/429/720/f432a327489cf745ca766896b25c25cd_original.jpg?ixlib=rb-4.1.0&crop=faces&w=352&h=198&fit=crop&v=1695609748&auto=format&frame=1&q=92&s=b45b7aab87da423d60b6fbaf2ca98036",
     },
     {
         title: "Wastelands #1",
