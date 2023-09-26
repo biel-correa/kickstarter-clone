@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import CartPage from './pages/CartPage/CartPage';
 <<<<<<< HEAD
 import ViewProjectPage from './pages/ProjectsPage/ViewProjectPage';
@@ -17,7 +16,10 @@ import ProjectPage from './pages/ProjectsPage/ProjectsPage';
 
 const router = createBrowserRouter([
   {
-    path: '/cart', 
+    path: '/',
+    element: <Navigate to="/projects" replace />
+  }, {
+    path: '/cart',
     element: <CartPage />
 <<<<<<< HEAD
   },
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
     element: <IdPage />
 =======
   }, {
-    path: '/',
+    path: '/projects',
     element: <ProjectPage />
 >>>>>>> b96939c067a510da64484ccc44c4405f12454db5
   }
