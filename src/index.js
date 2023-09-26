@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import CartPage from './pages/CartPage/CartPage';
 import ProjectPage from './pages/ProjectsPage/ProjectsPage';
 
 
 const router = createBrowserRouter([
   {
+    path: '/',
+    element: <Navigate to="/projects" replace />
+  }, {
     path: '/cart',
     element: <CartPage />
   }, {
-    path: '/',
+    path: '/projects',
     element: <ProjectPage />
   }
 ])
