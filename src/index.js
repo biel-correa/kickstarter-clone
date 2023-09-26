@@ -21,19 +21,16 @@ const router = createBrowserRouter([
     path: '/projects',
     element: <ProjectPage />
   }, {
-    path: './projects/10',
+    path: '/projects/:id',
     element: <ViewProjectPage />
   }
-    ]
-  )
+])
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} >
-      <App />
-    </RouterProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
   
 );
