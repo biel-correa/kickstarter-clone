@@ -2,7 +2,7 @@ import './ProjectCard.css'
 
 export default function ProjectCardComponent(props) {
     return (
-        <div className="card mb-5" role="button">
+        <div className="card project-card mb-5" role="button">
             <img src={props.img} class="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">{props.title}</h5>
