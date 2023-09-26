@@ -1,7 +1,7 @@
 import BasePageComponent from "../../components/BasePageComponent/BasePageComponent";
 
 
-export default function IdPage () {
+export default function ViewProjectPage () {
   return (
     
     <BasePageComponent>
@@ -24,4 +24,3 @@ export default function IdPage () {
 
 
 
-<img className="profile-photo" src="./Images/Profile_picture.jpeg" alt={"Carlie Anglemire"}/>
