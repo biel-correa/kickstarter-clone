@@ -6,12 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import CartPage from './pages/CartPage/CartPage';
-<<<<<<< HEAD
-import ViewProjectPage from './pages/ProjectsPage/ViewProjectPage';
-
-=======
 import ProjectPage from './pages/ProjectsPage/ProjectsPage';
->>>>>>> b96939c067a510da64484ccc44c4405f12454db5
+import ViewProjectPage from './pages/ProjectsPage/ViewProjectPage';
 
 
 const router = createBrowserRouter([
@@ -21,16 +17,12 @@ const router = createBrowserRouter([
   }, {
     path: '/cart',
     element: <CartPage />
-<<<<<<< HEAD
-  },
-  {
-    path: '/projects/10',
-    element: <IdPage />
-=======
   }, {
     path: '/projects',
     element: <ProjectPage />
->>>>>>> b96939c067a510da64484ccc44c4405f12454db5
+  }, {
+    path: './projects/10',
+    element: <ViewProjectPage />
   }
     ]
   )
