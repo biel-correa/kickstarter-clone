@@ -1,9 +1,10 @@
 import './ProjectCard.css'
+import { Link } from 'react-router-dom'
 
 export default function ProjectCardComponent(props) {
     return (
-        <div className="card project-card mb-5" role="button">
-            <img src={props.img} class="card-img-top" alt="..." />
+        <Link className="card project-card mb-5 text-decoration-none" role="button" to="/projects/1">
+            <img src={props.img} className="card-img-top"/>
             <div className="card-body">
                 <h5 className="card-title">{props.title}</h5>
 
@@ -16,6 +17,6 @@ export default function ProjectCardComponent(props) {
                     </p>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }

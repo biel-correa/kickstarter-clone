@@ -7,7 +7,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import CartPage from './pages/CartPage/CartPage';
 import ProjectPage from './pages/ProjectsPage/ProjectsPage';
-import ViewProjectPage from './pages/ProjectsPage/ViewProjectPage';
+import ViewProjectPage from './pages/ViewProjectPage/ViewProjectPage';
 
 
 const router = createBrowserRouter([

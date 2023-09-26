@@ -1,6 +1,5 @@
 import BasePageComponent from "../../components/BasePageComponent/BasePageComponent";
 
-
 export default function ViewProjectPage () {
   return (
     
