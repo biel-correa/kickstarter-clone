@@ -21,7 +21,7 @@ export default function ProjectForm({ submit, project = null }) {
     submit(data);
   };
 
-  const submitText = project.id ? 'Editar Projeto' : 'Criar Projeto';
+  const submitText = project?.id ? 'Editar Projeto' : 'Criar Projeto';
 
   return (
     <form onSubmit={handleSubmit}>
