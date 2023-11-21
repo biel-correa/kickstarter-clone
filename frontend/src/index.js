@@ -9,6 +9,7 @@ import CartPage from './pages/CartPage/CartPage';
 import ProjectPage from './pages/ProjectsPage/ProjectsPage';
 import ViewProjectPage from './pages/ViewProjectPage/ViewProjectPage';
 import CreateProjectPage from './pages/CreateProjectPage/CreateProjectPage';
+import EditProjectPage from './pages/EditProjectPage/EditProjectPage';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: '/projects/create',
     element: <CreateProjectPage />
+  },
+  {
+    path: '/projects/:id/edit',
+    element: <EditProjectPage />
   },
 ])
 

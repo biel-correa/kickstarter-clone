@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-export default function ProjectForm({ submit }) {
+export default function ProjectForm({ submit, project = null }) {
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(project ?? {
     title: '',
     description: '',
     price: 0,
@@ -20,6 +20,8 @@ export default function ProjectForm({ submit }) {
     data.price = parseFloat(data.price);
     submit(data);
   };
+
+  const submitText = project.id ? 'Editar Projeto' : 'Criar Projeto';
 
   return (
     <form onSubmit={handleSubmit}>
@@ -39,7 +41,7 @@ export default function ProjectForm({ submit }) {
         <label htmlFor="urlImage" className="form-label">URL da Imagem</label>
         <input type="text" className="form-control" id="urlImage" name="urlImage" value={formData.urlImage} onChange={handleInputChange} />
       </div>
-      <button type="submit" className="btn btn-primary">Criar Projeto</button>
+      <button type="submit" className="btn btn-primary">{submitText}</button>
     </form>
   )
 }
