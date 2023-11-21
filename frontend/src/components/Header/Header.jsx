@@ -15,8 +15,12 @@ export default function Header() {
           <li className="nav-item active">
             <Link to="/" className="nav-link">Home</Link>
           </li>
-        </ul>            
+        </ul>
       </div>
+
+      <Link to="/projects/create">
+        <button className="btn btn-sm btn-success mx-3" type="submit">Criar Projeto</button>
+      </Link>
 
       <Link to="/cart">
         <FontAwesomeIcon icon={faCartShopping} />

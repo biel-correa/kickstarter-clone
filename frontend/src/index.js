@@ -8,22 +8,30 @@ import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom'
 import CartPage from './pages/CartPage/CartPage';
 import ProjectPage from './pages/ProjectsPage/ProjectsPage';
 import ViewProjectPage from './pages/ViewProjectPage/ViewProjectPage';
+import CreateProjectPage from './pages/CreateProjectPage/CreateProjectPage';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Navigate to="/projects" replace />
-  }, {
+  },
+  {
     path: '/cart',
     element: <CartPage />
-  }, {
+  },
+  {
     path: '/projects',
     element: <ProjectPage />
-  }, {
+  },
+  {
     path: '/projects/:id',
     element: <ViewProjectPage />
-  }
+  },
+  {
+    path: '/projects/create',
+    element: <CreateProjectPage />
+  },
 ])
 
 
@@ -32,7 +40,7 @@ root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
-  
+
 );
 
 
