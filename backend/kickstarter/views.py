@@ -35,8 +35,8 @@ class ProjectView(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse (" Estudante Cadastrado com Sucesso!", safe=False)
-        return JsonResponse ("O cadastro de Estudante Falhou!", safe=False)
+            return JsonResponse (" Projeto Cadastrado com Sucesso!", safe=False)
+        return JsonResponse ("O cadastro de Projeto Falhou!", safe=False)
     
     def patch(self, request, pk=None):
         project_to_update = self.get_project(pk)
