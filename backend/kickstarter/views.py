@@ -74,8 +74,11 @@ class OrderView(APIView):
                 serializer = OrderSerializer(data, many=True)
             return Response(serializer.data)
 
-        def saveOrderItem(self, orderItem, orderId):
-            orderItem['orderId'] = orderId
+        def saveOrderItem(self, project, orderId):
+            orderItem = {
+                'orderId': orderId,
+                'projectId': project['id']
+            }
             serializer = OrderItemsSerializer(data=orderItem)
             print(serializer)
 
@@ -88,18 +91,16 @@ class OrderView(APIView):
 
             data = request.data
             serializer = OrderSerializer(data=data)
-            print(serializer)
             if not serializer.is_valid():
                 return JsonResponse ("O cadastro da Order Falhou!", safe=False)
 
             data = serializer.save()
-            orderItems = request.data['projects']
+            projects = request.data['projects']
 
-
-            for item in orderItems:
+            for item in projects:
                 self.saveOrderItem(item, data.id)
 
-            return JsonResponse (" Order Cadastrada com Sucesso!", safe=False)
+            return JsonResponse(" Order Cadastrada com Sucesso!", safe=False)
 
 
 class OrderItemsView(APIView):
