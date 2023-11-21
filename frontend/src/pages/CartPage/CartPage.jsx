@@ -6,6 +6,35 @@ import { useState } from "react";
 export default function CartPage() {
   const [projects, setProjects] = useState(JSON.parse(localStorage.getItem('cart')) || [])
 
+  const pay = () => {
+    const name = prompt('Qual o seu nome?');
+    const payload = {
+      name,
+      projects
+    };
+
+    fetch('http://localhost:8000/orders/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert('Pagamento realizado com sucesso!');
+          localStorage.removeItem('cart');
+          setProjects([]);
+        } else {
+          alert('Erro ao realizar o pagamento!');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Erro ao realizar o pagamento!');
+      });
+  }
+
   const removeProduct = (product) => {
     const newProjects = projects.filter((item) => item.id !== product.id);
     setProjects(newProjects);
@@ -51,7 +80,7 @@ export default function CartPage() {
           <div className="card-body">
             <h5 className="card-title">Resumo</h5>
             <h6 className="card-subtitle mb-2 text-muted">Total: R$ {getTotalPrice()}</h6>
-            <button className="btn btn-sm btn-success" disabled={projects.length <= 0}>Finalizar Pedido</button>
+            <button className="btn btn-sm btn-success" disabled={projects.length <= 0} onClick={pay}>Finalizar Pedido</button>
           </div>
         </div>
 
