@@ -73,8 +73,6 @@ export default function ViewProjectPage() {
     } else if (project) {
       return (
         <div className="container">
-          <h2>{project.title}</h2>
-
           <div class="card mb-3">
             <div class="card-body">
               <div className="d-flex justify-content-between">
