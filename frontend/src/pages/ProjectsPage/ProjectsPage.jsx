@@ -53,10 +53,11 @@ export default function ProjectsPage() {
                     {projects.map((item) => (
                         <ProjectCardComponent
                             key={item.id}
+                            id={item.id}
                             img={item.urlImage}
                             title={item.title}
                             description={item.description}
-                            price={item.createdBy}
+                            price={item.price}
                         />
                     ))}
                 </div>
