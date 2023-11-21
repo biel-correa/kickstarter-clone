@@ -11,7 +11,7 @@ export default function ViewProjectPage() {
   const params = useParams();
 
   const getProject = async () => {
-    fetch(`http://localhost:3001/projects/${params.id}`)
+    fetch(`http://localhost:8000/projects/${params.id}`)
       .then((response) => {
         if (response.ok) {
           const data = response.json();

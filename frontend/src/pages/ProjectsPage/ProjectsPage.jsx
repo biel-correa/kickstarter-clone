@@ -8,14 +8,16 @@ export default function ProjectsPage() {
     const [error, setError] = useState(false);
 
     const getProjects = async () => {
-        fetch("http://localhost:3001/projects")
+        fetch("http://localhost:8000/projects/")
             .then((response) => {
                 if (response.ok) {
-                    const data = response.json();
-                    setProjects(data);
+                    return response.json();
                 }
 
                 throw response;
+            })
+            .then((data) => {
+                setProjects(data);
             })
             .catch((err) => {
                 console.log(err);
@@ -51,10 +53,10 @@ export default function ProjectsPage() {
                     {projects.map((item) => (
                         <ProjectCardComponent
                             key={item.id}
-                            img={item.img}
+                            img={item.urlImage}
                             title={item.title}
-                            content={item.content}
-                            createdBy={item.createdBy}
+                            description={item.description}
+                            price={item.createdBy}
                         />
                     ))}
                 </div>
