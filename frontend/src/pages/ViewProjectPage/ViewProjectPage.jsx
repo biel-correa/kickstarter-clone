@@ -56,7 +56,7 @@ export default function ViewProjectPage() {
             },
         }).then((response) => {
             if (response.ok) {
-                return response.json();
+                navigate('/projects/');
             }
         });
     };
@@ -89,13 +89,13 @@ export default function ViewProjectPage() {
                                 <h5 className="card-title">{project.title}</h5>
                                 <div className="d-flex">
                                     <button
-                                        className="btn btn-primary mx-2"
+                                        className="btn btn-primary"
                                         onClick={addToCart}
                                     >
                                         Adicionar no Carrinho
                                     </button>
                                     <button
-                                        className="btn btn-success"
+                                        className="btn btn-success mx-2"
                                         onClick={() =>
                                             navigate(
                                                 `/projects/${project.id}/edit`
@@ -105,22 +105,10 @@ export default function ViewProjectPage() {
                                         <FontAwesomeIcon icon={faEdit} />
                                     </button>
                                     <button
-                                        className="btn btn-primary mx-2"
-                                        onClick={addToCart}
-                                    >
-                                        Adicionar no Carrinho
-                                        <FontAwesomeIcon
-                                            className="ms-2"
-                                            icon={faPlus}
-                                        />
-                                    </button>
-                                    <button
                                         className="btn btn-danger"
                                         onClick={deleteProject}
                                     >
-                                        Remover Projeto
                                         <FontAwesomeIcon
-                                            className="ms-2"
                                             icon={faTrash}
                                         />
                                     </button>
