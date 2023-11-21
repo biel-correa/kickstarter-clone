@@ -15,10 +15,9 @@ class ProjectView(APIView):
 
     def get_project(self, pk):
         try:
-            project = Project.objects.get(id=pk)
+            return Project.objects.get(id=pk)
         except Project.DoesNotExist():
             raise Http404
-        return project
         
     def get(self, resquest, pk=None):
         if pk:
@@ -49,11 +48,8 @@ class ProjectView(APIView):
     
     def delete(self, request, pk=None):
         project_to_delete = self.get_project(pk)
-        try:
-            project_to_delete.delete()
-            return JsonResponse("Deletado com Sucesso", safe=False)
-        except:
-            return JsonResponse("Deletado sem Sucesso", safe=False)
+        project_to_delete.delete()
+        return JsonResponse("Deletado com Sucesso", safe=False)
     
 
 class OrderView(APIView):
@@ -80,7 +76,6 @@ class OrderView(APIView):
                 'projectId': project['id']
             }
             serializer = OrderItemsSerializer(data=orderItem)
-            print(serializer)
 
             if serializer.is_valid():
                 serializer.save()
