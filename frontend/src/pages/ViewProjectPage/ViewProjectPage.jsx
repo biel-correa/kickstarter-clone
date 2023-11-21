@@ -1,11 +1,13 @@
 import BasePageComponent from "../../components/BasePageComponent/BasePageComponent";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import SweetAlert2 from 'react-sweetalert2';
 
 export default function ViewProjectPage() {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [swalProps, setSwalProps] = useState({});
   const params = useParams();
 
   const getProject = async () => {
@@ -26,6 +28,28 @@ export default function ViewProjectPage() {
         setLoading(false);
       });
   };
+
+  const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const isAlreadyInCart = cart.find((item) => item.id === project.id);
+    if (isAlreadyInCart) {
+      setSwalProps({
+        title: "Ops!",
+        text: "Este projeto já está no seu carrinho!",
+        icon: "error",
+      });
+      return;
+    }
+
+    cart.push(project);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    setSwalProps({
+      title: "Sucesso!",
+      text: "Projeto adicionado no carrinho!",
+      icon: "success",
+    });
+  }
 
   useEffect(() => {
     getProject();
@@ -53,7 +77,11 @@ export default function ViewProjectPage() {
 
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">{project.title}</h5>
+              <div className="d-flex justify-content-between">
+                <h5 className="card-title">{project.title}</h5>
+
+                <button className="btn btn-primary" onClick={addToCart}>Adicionar no Carrinho</button>
+              </div>
 
               <p class="card-text">{project.content}</p>
 
@@ -74,6 +102,7 @@ export default function ViewProjectPage() {
   return (
     <BasePageComponent>
       {renderContent()}
+      <SweetAlert2 {...swalProps} />
     </BasePageComponent>
   )
 }
